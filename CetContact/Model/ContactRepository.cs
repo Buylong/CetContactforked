@@ -1,10 +1,4 @@
-﻿
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
 namespace CetContact.Model
 {
@@ -12,21 +6,22 @@ namespace CetContact.Model
     {
         private SQLiteAsyncConnection database;
         private string databaseName = "contacts2.db3";
-        
 
-        public ContactRepository() {
+        public ContactRepository()
+        {
             string dbPath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<ContactInfo>(CreateFlags.AllImplicit | CreateFlags.AutoIncPK).GetAwaiter().GetResult();
         }
-       
-        public async Task<List<ContactInfo>> GetAllContacts () { 
+
+        public async Task<List<ContactInfo>> GetAllContacts()
+        {
             return await database.Table<ContactInfo>().ToListAsync();
         }
-        public async Task AddContact (ContactInfo contact)
+
+        public async Task AddContact(ContactInfo contact)
         {
             await database.InsertAsync(contact);
-        
         }
 
         public async Task<ContactInfo> GetContactById(int Id)
@@ -38,6 +33,11 @@ namespace CetContact.Model
         public async Task Update(ContactInfo contact)
         {
             await database.UpdateAsync(contact);
+        }
+
+        public async Task Delete(ContactInfo contact)
+        {
+            await database.DeleteAsync(contact);
         }
     }
 }

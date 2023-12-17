@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CetContact.Views.AddContactPage"
-             Title="AddContact">
+             x:Class="CetContact.Views.EditContactPage"
+             Title="EditContact">
+
     <VerticalStackLayout Spacing="10" Padding="10,10,10,10">
-       
-            <Frame BorderColor="Silver" Padding="10,2,10,2" > 
-                <HorizontalStackLayout>
-                    <Label Text="Ad" VerticalOptions="Center" WidthRequest="100"></Label>
+
+        <Frame BorderColor="Silver" Padding="10,2,10,2" >
+            <HorizontalStackLayout>
+                <Label Text="Ad" VerticalOptions="Center" WidthRequest="100"></Label>
                 <Entry x:Name="NameEntry" VerticalOptions="Center" WidthRequest="200"></Entry>
-                </HorizontalStackLayout>
-            </Frame>
+            </HorizontalStackLayout>
+        </Frame>
 
         <Frame BorderColor="Silver" Padding="10,2,10,2" >
             <HorizontalStackLayout>
@@ -18,19 +19,32 @@
                 <Entry x:Name="PhoneEntry" VerticalOptions="Center" WidthRequest="200"></Entry>
             </HorizontalStackLayout>
         </Frame>
+
         <Frame BorderColor="Silver" Padding="10,2,10,2" >
             <HorizontalStackLayout>
                 <Label Text="EPosta" VerticalOptions="Center" WidthRequest="100"></Label>
                 <Entry x:Name="EmailEntry" VerticalOptions="Center" WidthRequest="200"></Entry>
             </HorizontalStackLayout>
         </Frame>
+
         <Frame BorderColor="Silver" Padding="10,2,10,2"  >
             <HorizontalStackLayout>
                 <Label Text="Adres" VerticalOptions="Center" WidthRequest="100"></Label>
                 <Entry x:Name="AdressEntry" VerticalOptions="Center" WidthRequest="200"></Entry>
             </HorizontalStackLayout>
         </Frame>
+
         <Button Text="Kaydet" x:Name="SaveButton" Clicked="SaveButton_Clicked"></Button>
+        <Button Text="Sil" x:Name="DeleteButton" Clicked="DeleteButton_Clicked"></Button>
         <Button Text="Geri Dön" x:Name="BackButton" Clicked="BackButton_Clicked"></Button>
+
     </VerticalStackLayout>
+
+    <OnPlatform x:TypeArguments="View">
+        <OnPlatform.iOS></OnPlatform.iOS>
+        <OnPlatform.Android></OnPlatform.Android>
+        <OnPlatform.WinUI>
+        </OnPlatform.WinUI>
+    </OnPlatform>
+
 </ContentPage>
