@@ -34,17 +34,9 @@
             </HorizontalStackLayout>
         </Frame>
 
-        <Button Text="Kaydet" x:Name="SaveButton" Clicked="SaveButton_Clicked"></Button>
-        <Button Text="Sil" x:Name="DeleteButton" Clicked="DeleteButton_Clicked"></Button>
-        <Button Text="Geri Dön" x:Name="BackButton" Clicked="BackButton_Clicked"></Button>
+        <Button Text="Kaydet" Clicked="SaveButton_Clicked"></Button>
+        <Button Text="Sil" Clicked="DeleteButton_Clicked"></Button>
+        <Button Text="Geri Dön" Clicked="BackButton_Clicked"></Button>
 
     </VerticalStackLayout>
-
-    <OnPlatform x:TypeArguments="View">
-        <OnPlatform.iOS></OnPlatform.iOS>
-        <OnPlatform.Android></OnPlatform.Android>
-        <OnPlatform.WinUI>
-        </OnPlatform.WinUI>
-    </OnPlatform>
-
 </ContentPage>
